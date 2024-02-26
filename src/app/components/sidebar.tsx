@@ -8,7 +8,7 @@ import { Logo } from "./logo";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 export function Sidebar() {
-  const [isSidebarOpen, setSidebarOpen] = useState(false);
+  const [isSidebarOpen, setSidebarOpen] = useState(true);
   const collapse = () => setSidebarOpen(!isSidebarOpen);
   return (
     <div className="flex-row items-center hidden lg:flex space-x-1">
