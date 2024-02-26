@@ -4,14 +4,17 @@ import { PiSquaresFourLight } from "react-icons/pi";
 import { useEffect, useRef, useState } from "react";
 import { BiEdit } from "react-icons/bi";
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
+import { IoClose } from "react-icons/io5";
 import { Logo } from "./logo";
 import { AnimatePresence, motion } from "framer-motion";
-import Image from "next/image";
+import { useAtom } from "jotai";
+import { sidebarCollapsed } from "../atom";
+import { Button } from "@/components/ui/button";
 export function Sidebar() {
-  const [isSidebarOpen, setSidebarOpen] = useState(true);
+  const [isSidebarOpen, setSidebarOpen] = useAtom(sidebarCollapsed);
   const collapse = () => setSidebarOpen(!isSidebarOpen);
   return (
-    <div className="flex-row items-center hidden lg:flex space-x-1">
+    <div className="flex-row lg:items-center flex space-x-1 fixed lg:sticky ">
       <AnimatePresence>
         {isSidebarOpen && (
           <motion.div
@@ -48,20 +51,31 @@ export function Sidebar() {
         )}
       </AnimatePresence>
       {isSidebarOpen ? (
-        <FaChevronLeft
-          className={cn(
-            "w-5 h-5 opacity-50",
-            "cursor-pointer hover:opacity-100",
-            "transition duration-500"
-          )}
-          onClick={collapse}
-        />
+        <>
+          <FaChevronLeft
+            className={cn(
+              "w-5 h-5 opacity-50",
+              "cursor-pointer hover:opacity-100",
+              "transition duration-500",
+              "hidden lg:flex"
+            )}
+            onClick={collapse}
+          />
+          <Button
+            variant={"ghost"}
+            className="w-10 h-10 p-0 m-2 border-muted-foreground/40 border-[1px] lg:hidden"
+            onClick={collapse}
+          >
+            <IoClose className="w-6 h-6" />
+          </Button>
+        </>
       ) : (
         <FaChevronRight
           className={cn(
             "w-5 h-5 opacity-50",
             "cursor-pointer hover:opacity-100",
-            "transition duration-500"
+            "transition duration-500",
+            "hidden lg:flex"
           )}
           onClick={collapse}
         />

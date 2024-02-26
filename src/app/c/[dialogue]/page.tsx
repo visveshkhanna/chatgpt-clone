@@ -1,3 +1,3 @@
 export default function ChatPage({ params }: { params: { dialogue: string } }) {
-  return <div className=""></div>;
+  return <div className="h-screen w-full">hello</div>;
 }
