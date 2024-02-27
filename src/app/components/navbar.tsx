@@ -11,7 +11,7 @@ import { SelectModel } from "./model";
 export function NavBar() {
   const [isSidebarOpen, setSidebarOpen] = useAtom(sidebarCollapsed);
   return (
-    <div className="hidden lg:flex flex-row w-full py-4 pr-4 justify-between items-center">
+    <div className="sticky hidden lg:flex flex-row w-full py-4 pr-4 justify-between items-center">
       <div className="flex flex-row space-x-2 items-center px-2 lg:px-0">
         {!isSidebarOpen && (
           <Button

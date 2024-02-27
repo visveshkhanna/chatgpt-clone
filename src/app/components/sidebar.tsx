@@ -14,7 +14,7 @@ export function Sidebar() {
   const [isSidebarOpen, setSidebarOpen] = useAtom(sidebarCollapsed);
   const collapse = () => setSidebarOpen(!isSidebarOpen);
   return (
-    <div className="flex-row lg:items-center flex space-x-1 fixed lg:sticky ">
+    <div className="flex-row lg:items-center flex space-x-1 fixed lg:sticky z-10">
       <AnimatePresence>
         {isSidebarOpen && (
           <motion.div
