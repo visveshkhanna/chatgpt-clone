@@ -14,13 +14,13 @@ export function Sidebar() {
   const [isSidebarOpen, setSidebarOpen] = useAtom(sidebarCollapsed);
   const collapse = () => setSidebarOpen(!isSidebarOpen);
   return (
-    <div className="flex-row lg:items-center flex space-x-1 fixed lg:sticky z-10">
+    <div className="flex-row lg:items-center flex space-x-2 fixed lg:sticky z-10">
       <AnimatePresence>
         {isSidebarOpen && (
           <motion.div
-            initial={{ x: -260 }}
+            initial={{ x: -250 }}
             animate={{ x: 0 }}
-            exit={{ x: -260 }}
+            exit={{ x: -250 }}
             transition={{ duration: 0.2, ease: "easeInOut" }}
             className="flex flex-col w-[260px] h-screen bg-[#171717]"
           >
@@ -72,7 +72,7 @@ export function Sidebar() {
       ) : (
         <FaChevronRight
           className={cn(
-            "w-5 h-5 opacity-50",
+            "w-5 h-5 opacity-50 pl-1",
             "cursor-pointer hover:opacity-100",
             "transition duration-500",
             "hidden lg:flex"
